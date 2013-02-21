@@ -1,6 +1,6 @@
-NAME: FLTK/fltk
+NAME: fltk
 
-VERSION: .02
+VERSION: .02  
 
 AUTHOR: Mike Maul
 
@@ -20,14 +20,14 @@ Binding for cross-platform GUI tool FLTK 1.X (http://www.fltk.org)
 ## Quickstart Installation ##
 * 'install' must be able to write to Felix INSTALL_ROOT
 ...
-flx_pkg install fltk 
+scoop install fltk 
 ...
 
 ## Semi-automated Installation ##
 The log way... This will place the packge in your current working directory.
 Where you can isue the build, test, install or force commands to setup.
 ...
-flx_pkg get fltk
+scoop get fltk
 flx setup build
 flx setup test
 flx setup install
