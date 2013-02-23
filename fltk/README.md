@@ -8,7 +8,7 @@ AUTHOR_EMAIL mike d0t maul [at] gmail <.> com
 
 PKG_URL: https://github.com/mmaul/fltk
 
-DESCRIPTION = FLTK 1.X bindings
+DESCRIPTION: FLTK 1.X bindings
 
 CATEGORY: GUI
 

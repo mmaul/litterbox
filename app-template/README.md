@@ -8,9 +8,9 @@ AUTHOR_EMAIL:
 
 PKG_URL: https://github.com/mmaul/app-template
 
-DESCRIPTION = Generic Application Template
+DESCRIPTION: Generic Application Template
 
-CATEGORY: Dev
+CATEGORY: Template
 
 LIBDIR: app
 
