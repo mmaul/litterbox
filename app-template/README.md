@@ -20,9 +20,9 @@ Quickstart SetupTool application template for a generic application.
 ## Quickstart Installation ##
 * 'install' must be able to write to Felix INSTALL_ROOT
 
-    scoop get app-template as myapp --degitify
+    scoop get app-template myapp --degitify
 
-You can leave off the ''as myapp --degitify'' if you want, that just tell scoop 
+You can leave off the ''myapp --degitify'' if you want, that just tell scoop 
 to strip the .git repo information and to drop app-template in the myapp directory. It is will be your app after all...
 
 Now start writing your new killer app for Felix.

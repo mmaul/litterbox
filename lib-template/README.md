@@ -20,9 +20,9 @@ Quickstart SetupTool application template for a generic library.
 ## Quickstart Installation ##
 * 'install' must be able to write to Felix INSTALL_ROOT
 
-    scoop get lib-template as myapp --degitify
+    scoop get lib-template myapp --degitify
 
-You can leave off the ''as myapp --degitify'' if you want, that just tell scoop 
+You can leave off the ''myapp --degitify'' if you want, that just tell scoop 
 to strip the .git repo information and to drop app-template in the myapp directory. It is will be your app after all...
 
 Now start writing your binding for the phyics or 3D game engine for Felix.
