@@ -2,7 +2,7 @@ NAME: pkgtool
 
 DESCRIPTION: Packaging Management Tool
 
-VERSION: .02
+VERSION: .031
 
 AUTHOR:  Mike Maul
 
@@ -16,14 +16,12 @@ LIBDIR: PKGTOOL
 
 PKGTOOL is what happens when a build system, a package manager and a test 
 framework meet up at a bar and have a few too many drinks. Seriously though
-pkgtool is a underlying framwork that contains the common aspects. As an aside 
-a flx compiler API interface happend by at the bar towards the end and got in 
-on the fun.
+pkgtool is a framework that combines the common aspects of all three. 
+Also a flx compiler API interface happend by at the bar towards the end and 
+got in on the fun.
 
-Two user interfaces exist, the package manager ''scoop'' and the build framework 
-SetupTool. The package manager ''scoop'' exists as an independant executable 
-while SetupTool exists as a user implementable framework for package build 
-and test management.
+PkgTool is used to implement ''scoop'' a distributed package management 
+application. PkgTool is also used to implement SetupTool build/test/package management framework.
 
 Features
 =======
@@ -31,15 +29,14 @@ Features
 * Package build framework
 * Package test framework
 * Package installation framework
-* Distributed remote package repository framework
+* Distributed remote package repository 
 * Distributed package management application
 * Centeralized package directory
-* Programatic frendly inter face to the flx compiler frontend.
 
 Installation
 ============
 
-Installation is simple because PkgTool uses pkgtool for build and installation.
+Installation is simple because PkgTool uses PkgtTool for build and installation.
 All that is needed is:
 
     flx setup install
@@ -376,46 +373,6 @@ the log file name is called 'setup_log'. Additionally logged output from the Tes
 by setting the variable TEST_LOG to a desired file name. By default TEST_LOG is also set to 'setup.log'
 The contents of the log files are turnicated on each run of setup.flx.
 
-libflx the flx API interface
-============================
-libflx is progrmattic interface to the functionality offered by the 'flx' executable. It is implemented as a
-Felix object and offered as a plugin. It was motivated by a sick to deathness of stringing together argument
-strings to call the 'flx' compiler. Unfortunately it came alittle late to the party so it is not currently
-used extensively in PkgTool, howeer in the future PkgTool may be refactored to use libflx inplace of shell
-calls to execute the 'flx' compiler frontend. It is available in the PkgTool through the run_flx procedure.
-libflx can be used outside of the Package tool frame work and would be quite useful for in an IDE.
-Good examples of usage of libflx can be found in the the PkgTool tests.
-
-Below is one such test:
-
-    include "PKGTOOL/libflx_factory";
-    include "PKGTOOL/pkgtool";
-    open PkgTool;
-    var myflx = libflx_factory();
-    myflx.set_dbug(false);
-    myflx.set_showcode(true);
-    myflx.set_snort(true);
-    match myflx.init_compiler() with
-    |OK[string] => {
-      imply("Compiler initialization");
-      match myflx.flx_compile("test/D01-libflx.flx") with
-      |OK[string] => {
-        imply("Compiliation of D01-libflx.flx");
-        match myflx.c_compile() with
-          |ERR[string] (?e,?m) => { test_fail("Returned with error code:"+e+":"+m); }
-          |OK[string] ?m => {
-          assert_true(m == "A\na\n", 
-            "Compiling D01-libflx.flx to shared object and running");
-        }
-        endmatch;
-      }
-      |ERR[string] (?e,?m) => { test_fail("Returned with error code:"+e+":"+m);}
-      endmatch;
-    }
-    |ERR[string] (?e,?m) => { test_fail("Returned with error code:"+e+":"+m); }
-    endmatch;
-    imply("Control returned to test harness");
-
 
 PkgTool Caveats
 ===============
@@ -425,5 +382,4 @@ Windows, and before it works there will be blood.
 PkgTool TODO
 ============
 - [ ] Package uninstall
-- [ ] Use libflx for compiler calls instead of shell calls
 - [ ] Test on Windows platform
