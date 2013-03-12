@@ -1,6 +1,6 @@
 NAME: glut
 
-VERSION: .01
+VERSION: .011
 
 AUTHOR: flcc
 
@@ -14,7 +14,7 @@ CATEGORY: GUI GL
 
 LIBDIR: GLUT
 
-DEPENDENCIES: gl, glu
+DEPENDENCIES: opengl
 -----
 Quickstart 
 

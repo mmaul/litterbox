@@ -1,6 +1,6 @@
 NAME: readline
 
-VERSION: .011  
+VERSION: .012  
 
 AUTHOR: Mike Maul
 
